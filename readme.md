@@ -1,0 +1,44 @@
+# edx-test-course
+> test solutions of course exercises against the grader
+
+## Install
+
+Install it with
+
+```
+npm install edx-test-course
+```
+## Usage
+
+```
+Usage:
+    edx-test-course justone DIR ENDPOINT NUM 
+    edx-test-course all DIR ENDPOINT 
+    edx-test-course ( -h | --help )
+
+Options:
+    -h, --help              help for edx-test-course
+    
+Commands:
+
+Arguments:
+    DIR                     directory of the course
+    ENDPOINT                grader endpoint address (IP:PORT)
+    NUM                     exe num.
+
+```
+
+## Author
+
+* Vittorio Zaccaria
+
+## License
+Released under the BSD License.
+
+***
+
+
+
+# Bug fixes
+
+-     clean up succesfull test output -- [Jun 22nd 16](../../commit/ce39a61e3319435906880b7d8cbcba48afc411b1)

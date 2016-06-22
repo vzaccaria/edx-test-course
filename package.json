@@ -1,6 +1,6 @@
 {
   "name": "edx-test-course",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "test solutions of course exercises against the grader",
   "main": "./lib/index.js",
   "bin": {

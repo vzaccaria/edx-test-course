@@ -66,11 +66,15 @@ let {
     packet
 } = _module;
 
+let _gl = (s) => {
+    return s.split("\n")[0];
+}
+
 function testIt(endpoint) {
     return function(it,num) {
         return testSolution(`http://${endpoint}/payload`, it).then((r) => {
             if (r.body.correct) {
-                ok(`${num}: ${it.code.solution} ==> ${it.code.validation}`);
+                ok(`${num}: ${_gl(it.code.solution)}`);
             } else {
                 error(`${num}: ${it.code.solution} ==> ${it.code.validation}`);
             }

@@ -95,18 +95,20 @@ const main = () => {
         if (help) {
             console.log(it);
         } else {
-            execAsync(`SILENT=1 ${__dirname}/../node_modules/.bin/gitbook3toedx json ${dir}`)
-                .then(({
-                    stdout
-                }) => JSON.parse(stdout))
-                .then(extractExercises)
-                .then((xs) => {
-                    if (justone) {
-                        testIt(endpoint)(xs[num],num)
-                    } else if (all) {
-                        bluebird.all(_.map(xs, testIt(endpoint)));
-                    }
-                });
+            execAsync('npm bin').then((bin) => {
+                execAsync(`SILENT=1 ${bin}/gitbook3toedx json ${dir}`)
+                    .then(({
+                        stdout
+                    }) => JSON.parse(stdout))
+                    .then(extractExercises)
+                    .then((xs) => {
+                        if (justone) {
+                            testIt(endpoint)(xs[num],num)
+                        } else if (all) {
+                            bluebird.all(_.map(xs, testIt(endpoint)));
+                        }
+                    });
+            });
         }
     });
 }

@@ -96,6 +96,7 @@ const main = () => {
             console.log(it);
         } else {
             execAsync('npm bin').then((bin) => {
+                bin = bin.stdout.replace(/(\r\n|\n|\r)/gm,"");
                 execAsync(`SILENT=1 ${bin}/gitbook3toedx json ${dir}`)
                     .then(({
                         stdout
